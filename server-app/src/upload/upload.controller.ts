@@ -15,8 +15,7 @@ import { editFileName, imageFileFilter, csvFileFilter, pdfFileFilter, excelFileF
 @Controller('upload')
 export class UploadController {
 
-    private arrayBuffer: any;
-
+    // tslint:disable-next-line:no-empty
     constructor() { }
 
     @Post('image')
@@ -99,7 +98,6 @@ export class UploadController {
         });
         return response;
     }
-
 
     @Post('pdf')
     @UseInterceptors(

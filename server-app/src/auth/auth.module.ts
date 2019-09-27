@@ -13,7 +13,7 @@ import { PassportModule } from '@nestjs/passport';
       secret: 'thisismykickasssecretthatiwilltotallychangelater',
       signOptions: {
         expiresIn: 3600,
-      }
+      },
     }),
     UsersModule,
   ],
