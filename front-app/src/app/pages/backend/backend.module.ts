@@ -8,6 +8,7 @@ import { UsersListModule } from './users/users-list/users-list.module';
 import { ViewUserModule } from './users/view-user/view-user.module';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { CommonModule } from '@angular/common';
+import { ProjectsListModule } from './projects/projects-list/projects-list.module';
 
 
 
@@ -19,6 +20,7 @@ import { CommonModule } from '@angular/common';
     NbMenuModule,
     UsersListModule,
     ViewUserModule,
+    ProjectsListModule,
     NbCardModule,
     NbTreeGridModule,
     NbIconModule,

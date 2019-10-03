@@ -1,13 +1,13 @@
+import { ProjectService } from './../../../../shared/services/project/project.service';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { UsersService } from 'src/app/shared/services/users/users.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-users-list',
-  templateUrl: './users-list.component.html',
-  styleUrls: ['./users-list.component.scss']
+  selector: 'app-projects-list',
+  templateUrl: './projects-list.component.html',
+  styleUrls: ['./projects-list.component.scss']
 })
-export class UsersListComponent implements OnInit {
+export class ProjectsListComponent implements OnInit {
 
   settings = {
     add: {
@@ -29,31 +29,24 @@ export class UsersListComponent implements OnInit {
       position: 'left',
     },
     columns: {
-      username: {
-        title: 'Utilisateur',
+      title: {
+        title: 'Titre',
         type: 'text',
       },
-      email: {
-        title: 'E-mail',
+      content: {
+        title: 'Description',
         type: 'text',
       },
-      role: {
-        title: 'Rôle',
-        type: 'text'
-      }
     },
   };
 
-  public users: any[] = [];
+  public projects: any[] = [];
 
-  constructor(private router: Router, private usersService: UsersService) {
+  constructor(private router: Router, private readonly projectService: ProjectService, private route: ActivatedRoute) { }
 
-  }
-
-  goToViewUser(event): void {
+  goToViewProject(event): void {
     console.log(event);
-    console.log(`user/${event.data.userId}`);
-    this.router.navigate([`/admin/user/${event.data.userId}`]);
+    this.router.navigate([`/admin/project/${event.data.projectId}`]);
   }
 
   onDeleteConfirm(event): void {
@@ -77,15 +70,15 @@ export class UsersListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.usersService.getUsers().subscribe((data: any) => {
+    this.projectService.getProjects().subscribe((data: any) => {
 
-      this.users = data.map((elem) => {
+      this.projects = data.map((elem) => {
         return {
-          userId: elem._id,
+          projectId: elem._id,
           ...elem
         };
       });
-      console.log(this.users);
+      console.log(this.projects);
     });
   }
 

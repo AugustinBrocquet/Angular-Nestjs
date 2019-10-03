@@ -11,25 +11,6 @@ export const MENU_ITEMS: NbMenuItem[] = [
   {
     title: 'Projets',
     icon: 'shopping-cart-outline',
-    children: [
-      {
-        title: 'eTrotter',
-      },
-      {
-        title: 'CRM',
-      },
-      {
-        title: 'DC',
-      },
-      {
-        title: 'Salesforce',
-      },
-      {
-        title: 'BO Google Home',
-      },
-      {
-        title: 'App Google Home',
-      },
-    ],
+    link: '/admin/projects',
   }
 ];

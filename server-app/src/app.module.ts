@@ -7,6 +7,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { MailerModule, HandlebarsAdapter } from '@nest-modules/mailer';
 import { DownloadModule } from './download/download.module';
 import { UploadModule } from './upload/upload.module';
+import { ProjectsModule } from './projects/projects.module';
 
 @Module({
   imports: [
@@ -30,6 +31,7 @@ import { UploadModule } from './upload/upload.module';
     UploadModule,
     UsersModule,
     DownloadModule,
+    ProjectsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

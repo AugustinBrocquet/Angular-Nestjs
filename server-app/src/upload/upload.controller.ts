@@ -18,6 +18,24 @@ export class UploadController {
     // tslint:disable-next-line:no-empty
     constructor() { }
 
+    @Post('editor')
+    @UseInterceptors(
+        FileInterceptor('file', {
+            storage: diskStorage({
+                destination: './resources/img',
+                filename: editFileName,
+            }),
+            fileFilter: imageFileFilter,
+        }),
+    )
+    async uploadedFileEditor(@UploadedFile() file) {
+        const response = {
+            originalname: file.originalname,
+            filename: file.filename,
+        };
+        return { imageUrl: `http://localhost:3000/img/${file.filename}` };
+    }
+
     @Post('image')
     @UseInterceptors(
         FileInterceptor('image', {

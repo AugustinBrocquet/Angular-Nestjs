@@ -1,3 +1,4 @@
+import { ProjectsListComponent } from './projects/projects-list/projects-list.component';
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 
@@ -21,6 +22,13 @@ const routes: Routes = [{
     {
       path: 'user/:userId',
       component: ViewUserComponent,
+    },
+    {
+      path: 'projects',
+      component: ProjectsListComponent,
+    },
+    {
+      path: 'project/:projectId'
     },
     {
       path: '',
